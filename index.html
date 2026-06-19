@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 70%, #533483 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 40px 16px;
+    }
+
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::before {
+      width: 500px; height: 500px;
+      background: #e94560;
+      top: -120px; left: -100px;
+    }
+    body::after {
+      width: 420px; height: 420px;
+      background: #a855f7;
+      bottom: -100px; right: -80px;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 24px;
+      padding: 44px 40px;
+      width: 100%;
+      max-width: 720px;
+      box-shadow: 0 32px 64px rgba(0,0,0,0.45);
+      color: #fff;
+    }
+
+    .form-header { text-align: center; margin-bottom: 36px; }
+    .form-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #e94560, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .form-header p {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.88rem;
+      margin-top: 7px;
+    }
+
+    .section-title {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #a855f7;
+      margin: 30px 0 14px;
+      border-bottom: 1px solid rgba(168,85,247,0.25);
+      padding-bottom: 7px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1 1 160px;
+    }
+    .field.full { flex: 1 1 100%; }
+
+    label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    input[type="text"],
+    select {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.95rem;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+      width: 100%;
+      font-family: inherit;
+    }
+    input[type="text"]::placeholder { color: rgba(255,255,255,0.22); }
+    input[type="text"]:focus,
+    select:focus {
+      border-color: #a855f7;
+      background: rgba(168,85,247,0.1);
+      box-shadow: 0 0 0 3px rgba(168,85,247,0.2);
+    }
+    select { cursor: pointer; }
+    select option { background: #1a1a2e; color: #fff; }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      margin-top: 36px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #e94560, #a855f7);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(233,69,96,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+    }
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(233,69,96,0.5);
+    }
+    .btn-submit:active { transform: translateY(0); }
+
+    @media (max-width: 580px) {
+      .container { padding: 28px 18px; }
+      .field { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-header">
+      <h2>Registration Form</h2>
+      <p>Fill out the form carefully for registration</p>
+    </div>
+
+    <form>
+
+      <div class="section-title">Full Name</div>
+      <div class="field-group">
+        <div class="field">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" placeholder="John">
+        </div>
+        <div class="field">
+          <label for="middle-name">Middle Name</label>
+          <input type="text" id="middle-name" placeholder="Michael">
+        </div>
+        <div class="field">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" placeholder="Doe">
+        </div>
+      </div>
+
+      <div class="section-title">Personal Details</div>
+      <div class="field-group">
+        <div class="field">
+          <label for="birth-month">Birth Month</label>
+          <select id="birth-month">
+            <option value="">-- Month --</option>
+            <option value="01">01 - January</option>
+            <option value="02">02 - February</option>
+            <option value="03">03 - March</option>
+            <option value="04">04 - April</option>
+            <option value="05">05 - May</option>
+            <option value="06">06 - June</option>
+            <option value="07">07 - July</option>
+            <option value="08">08 - August</option>
+            <option value="09">09 - September</option>
+            <option value="10">10 - October</option>
+            <option value="11">11 - November</option>
+            <option value="12">12 - December</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="birth-day">Birth Day</label>
+          <select id="birth-day">
+            <option value="">-- Day --</option>
+            <option>01</option><option>02</option><option>03</option><option>04</option><option>05</option>
+            <option>06</option><option>07</option><option>08</option><option>09</option><option>10</option>
+            <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+            <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+            <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+            <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+            <option>31</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="birth-year">Birth Year</label>
+          <select id="birth-year">
+            <option value="">-- Year --</option>
+            <option>2008</option><option>2007</option><option>2006</option><option>2005</option>
+            <option>2004</option><option>2003</option><option>2002</option><option>2001</option>
+            <option>2000</option><option>1999</option><option>1998</option><option>1997</option>
+            <option>1996</option><option>1995</option><option>1994</option><option>1993</option>
+            <option>1992</option><option>1991</option><option>1990</option><option>1985</option>
+            <option>1980</option><option>1975</option><option>1970</option><option>1965</option>
+            <option>1960</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="gender">Gender</label>
+          <select id="gender">
+            <option value="">-- Select --</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="others">Others</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-title">Address</div>
+      <div class="field-group">
+        <div class="field full">
+          <label for="street1">Street Address</label>
+          <input type="text" id="street1" placeholder="123 Main Street">
+        </div>
+        <div class="field full">
+          <label for="street2">Street Address Line 2</label>
+          <input type="text" id="street2" placeholder="Apartment, suite, unit, etc.">
+        </div>
+        <div class="field">
+          <label for="city">City</label>
+          <input type="text" id="city" placeholder="Lagos">
+        </div>
+        <div class="field">
+          <label for="state">State / Province</label>
+          <input type="text" id="state" placeholder="Lagos State">
+        </div>
+        <div class="field">
+          <label for="zip">Postal / ZIP Code</label>
+          <input type="text" id="zip" placeholder="012-345">
+        </div>
+      </div>
+
+      <div class="section-title">Contact Information</div>
+      <div class="field-group">
+        <div class="field full">
+          <label for="email">Student E-mail</label>
+          <input type="text" id="email" placeholder="myname@example.com">
+        </div>
+        <div class="field">
+          <label for="mobile">Mobile Number</label>
+          <input type="text" id="mobile" placeholder="(000) 000-0000">
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="text" id="phone" placeholder="(000) 000-0000">
+        </div>
+        <div class="field">
+          <label for="work">Work Number</label>
+          <input type="text" id="work" placeholder="(000) 000-0000">
+        </div>
+        <div class="field full">
+          <label for="company">Company</label>
+          <input type="text" id="company" placeholder="Your company name">
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit">SUBMIT REGISTRATION</button>
+
+    </form>
+  </div>
+</body>
+</html>
